@@ -5,7 +5,6 @@ import (
   "strings"
   "math/rand"
   "time"
-  //"strconv"
 )
 
 func main() {
@@ -52,6 +51,7 @@ func fill_board(board [][]string) {
     }
   }
 }
+
 func print_board(board [][]string) {
   for i := 0; i < len(board); i++ {
     fmt.Printf("%s\n", strings.Join(board[i], " "))
@@ -69,13 +69,6 @@ func copy_board(src, dest [][]string) {
 func apply_rule(src, dest [][]string) {
   for i := 0; i < len(src); i++ {
     for j :=0; j < len(src[0]); j++ {
-      /*
-      if neighboring_xs(i, j, src) > 4 {
-        dest[i][j] = "O"
-      } else {
-        dest[i][j] = src[i][j]
-      }
-      */
       switch n := neighboring_xs(i, j, src); n {
       case 2, 3:
         if src[i][j] == "O" {
