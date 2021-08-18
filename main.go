@@ -26,7 +26,9 @@ func main() {
     height = 40 // default values
     width = 40
   default:
-    fmt.Println("Usage: gameoflife [height [ width ]] || []")
+    fmt.Println("Usage: gameoflife [height [ width ]]")
+    fmt.Println("Supplying just height gives a height x height board.")
+    fmt.Println("Supplying no arguments uses default values of 40, 40.")
     os.Exit(0)
   }
 
