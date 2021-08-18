@@ -8,5 +8,4 @@ Rules:
 - All dead cells stay dead.
 
 TODO:
-- Allow board dimensions to be passed as command line arguments.
 - Allow pre-populated boards to be loaded as starting boards.
