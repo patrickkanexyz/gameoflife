@@ -32,6 +32,12 @@ func main() {
     os.Exit(0)
   }
 
+  // check that board dimensions are legal
+  if height < 1 || width < 1 {
+    fmt.Println("Board dimensions must be greater than 1.")
+    os.Exit(0)
+  }
+
   // initialize boards
   board0 := init_board(height, width)
   fill_board(board0)
