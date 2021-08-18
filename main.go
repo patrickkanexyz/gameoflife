@@ -5,13 +5,35 @@ import (
   "strings"
   "math/rand"
   "time"
+  "os"
+  "strconv"
 )
 
 func main() {
+
+  args := os.Args[1:] // args[] = [ height, width ]
+
+  var height, width int
+
+  switch len(args) {
+  case 2:
+    height, _ = strconv.Atoi(args[0])
+    width, _= strconv.Atoi(args[1])
+  case 1:
+    height, _ = strconv.Atoi(args[0])
+    width, _ = strconv.Atoi(args[0])
+  case 0:
+    height = 40 // default values
+    width = 40
+  default:
+    fmt.Println("Usage: gameoflife [height [ width ]] || []")
+    os.Exit(0)
+  }
+
   // initialize boards
-  board0 := init_board(40, 40)
+  board0 := init_board(height, width)
   fill_board(board0)
-  board1 := init_board(40, 40)
+  board1 := init_board(height, width)
 
   // game loop
   for {
@@ -22,7 +44,6 @@ func main() {
     time.Sleep(1 * time.Second)
   }
 }
-
 /*
 Helper and utility functions
 */
