@@ -8,4 +8,5 @@ Rules:
 - All dead cells stay dead.
 
 TODO:
+- Add generation counter
 - Allow pre-populated boards to be loaded as starting boards.
