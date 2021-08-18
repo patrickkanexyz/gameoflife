@@ -14,6 +14,7 @@ func main() {
   args := os.Args[1:] // args[] = [ height, width ]
 
   var height, width int
+  generation := 0
 
   switch len(args) {
   case 2:
@@ -49,6 +50,8 @@ func main() {
     print_board(board0)
     apply_rule(board0, board1)
     copy_board(board1, board0)
+    fmt.Printf("Generation: %d", generation)
+    generation++
     time.Sleep(1 * time.Second)
   }
 }
