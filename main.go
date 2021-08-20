@@ -2,14 +2,24 @@ package main
 
 import (
   "fmt"
-  "strings"
   "math/rand"
-  "time"
   "os"
+  "os/signal"
   "strconv"
+  "strings"
+  "time"
 )
 
 func main() {
+  // setup interupt handler and cleanup
+  c := make(chan os.Signal, 1)
+  signal.Notify(c, os.Interrupt)
+
+  go func() {
+    <-c
+    fmt.Println("\033[?25h") // make cursor visable again
+    os.Exit(0)
+  }()
 
   args := os.Args[1:] // args[] = [ height, width ]
 
@@ -43,6 +53,9 @@ func main() {
   board0 := init_board(height, width)
   fill_board(board0)
   board1 := init_board(height, width)
+  
+  // hide cursor
+  fmt.Print("\033[?25l")
 
   // game loop
   for {
